@@ -1,17 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Body from "./components/Body";
+import Footer from "./components/Footer";
+import Title from "./components/Title";
 
 const heading1 = <h1> This is an element.</h1>;
 
-const Heading2 = () => {
+const AppLayout = () => {
   return (
-    <div>
-      This is a functional component.
-      <h2>This is the secnond line</h2>
-      {heading1}
-    </div>
+    <React.Fragment>
+      <Title />
+      <Body />
+      <Footer />
+    </React.Fragment>
   );
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Heading2 />);
+root.render(<AppLayout />);
