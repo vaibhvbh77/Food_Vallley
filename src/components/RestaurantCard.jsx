@@ -1,9 +1,8 @@
 import React from "react";
+import { ImageId } from "../../config";
 
 const RestaurantCard = ({ name, cuisines, cloudinaryImageId }) => {
-  const srx =
-    "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-    cloudinaryImageId;
+  const srx = ImageId + cloudinaryImageId;
   return (
     <div className="card">
       <img src={srx} />
