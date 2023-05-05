@@ -24,6 +24,10 @@
   width: 200px;
   padding: 10px;
   margin: 10px;
+  overflow: hidden;
+}
+.card > h2:link {
+  text-decoration: none;
 }
 .card > img {
   width: 100%;
@@ -32,4 +36,22 @@
   display: flex;
   flex: wrap;
   flex-wrap: wrap;
+}
+.shimmer {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(232, 229, 229);
+  padding: 10px;
+  margin: 10px;
+}
+.shimmerContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.searchContainer {
+  display: flex;
+  justify-content: center;
+}
+body {
+  background-color: rgb(240, 175, 123);
 }
