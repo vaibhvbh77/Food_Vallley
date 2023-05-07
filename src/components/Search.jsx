@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import restaurantList from "../../config";
-
+import { filterRestaurant } from "../utils/helper";
 const Search = (props) => {
   const [searchText, setSearchText] = useState("");
   const searchHandler = (event) => {
@@ -12,14 +11,11 @@ const Search = (props) => {
     props.onRestaurantChange(newRestaurantList);
   };
   const submitHandler = (event) => {
-    console.log(props.list);
     event.preventDefault();
-    const newRestaurantList = props.list?.filter((curr) =>
-      curr.data.name.toLowerCase().includes(searchText.toLowerCase())
-    );
-    console.log(newRestaurantList);
+    const newRestaurantList = filterRestaurant(searchText, props?.list);
     props.onRestaurantChange(newRestaurantList);
   };
+
   return (
     <div className="searchContainer">
       <input

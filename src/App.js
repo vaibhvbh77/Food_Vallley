@@ -9,7 +9,9 @@ import Contact from "./components/Contact";
 import Error from "./Error";
 import RestaurantDetails from "./components/RestaurantDetails";
 import Profile from "./components/Profile";
-import ProfileClass from "./components/ProfileClass";
+import { lazy, Suspense } from "react";
+import Shimmer from "./components/Shimmer";
+const InstaMart = lazy(() => import("./components/InstaMart"));
 
 const AppLayout = () => {
   return (
@@ -46,6 +48,14 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       { path: "/restaurant/:resId", element: <RestaurantDetails /> },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <InstaMart />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);
