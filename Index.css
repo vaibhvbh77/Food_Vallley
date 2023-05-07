@@ -40,7 +40,7 @@
 .shimmer {
   width: 200px;
   height: 200px;
-  background-color: rgb(232, 229, 229);
+  background-color: rgb(230, 222, 222);
   padding: 10px;
   margin: 10px;
 }
@@ -53,5 +53,5 @@
   justify-content: center;
 }
 body {
-  background-color: rgb(240, 175, 123);
+  background-color: rgb(254, 169, 66);
 }

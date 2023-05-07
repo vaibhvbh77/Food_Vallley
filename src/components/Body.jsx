@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/hooks/useOnline";
 const Body = (props) => {
   const [restaurantListState, setRestaurantList] = useState(restaurantList);
   const [isLoading, setIsLoading] = useState(true);
@@ -29,6 +30,10 @@ const Body = (props) => {
     fetchData();
   }, []);
 
+  const online = useOnline();
+  if (!online) {
+    return <h1>Check your Interent connection 🔴</h1>;
+  }
   return (
     <>
       {isLoading === true ? (
@@ -41,6 +46,7 @@ const Body = (props) => {
             list={restaurantListStateAll}
             onRestaurantChange={newRestaurnatHandler}
           />
+
           <div className="restaurant-list">
             {restaurantListState.map((curr) => {
               return (
