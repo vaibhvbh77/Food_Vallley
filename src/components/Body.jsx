@@ -7,10 +7,13 @@ import { useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/hooks/useOnline";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 const Body = (props) => {
   const [restaurantListState, setRestaurantList] = useState(restaurantList);
   const [isLoading, setIsLoading] = useState(true);
   const [restaurantListStateAll, setRestaurantListAll] = useState([]);
+  const { user, setUser } = useContext(UserContext);
 
   const fetchData = async () => {
     const data = await fetch(
@@ -24,6 +27,14 @@ const Body = (props) => {
   };
   const newRestaurnatHandler = (newList) => {
     setRestaurantList(newList);
+  };
+
+  const contextChangeHandler = (e) => {
+    setUser({ name: e.target.value, email: user.email });
+  };
+  const changeHandler = (e) => {
+    e.preventDefault();
+    setUser(e.target.value);
   };
 
   useEffect(() => {
@@ -46,6 +57,12 @@ const Body = (props) => {
             list={restaurantListStateAll}
             onRestaurantChange={newRestaurnatHandler}
           />
+          <input
+            type="text"
+            onChange={contextChangeHandler}
+            value={user.name}
+          />
+          <button onClick={changeHandler}>User Name</button>
 
           <div className="restaurant-list">
             {restaurantListState.map((curr) => {

@@ -55,3 +55,11 @@
 body {
   background-color: rgb(254, 169, 66);
 }
+.section {
+  border: 2px solid black;
+  margin: 20px;
+  padding: 2px;
+}
+.footer {
+  text-align: center;
+}

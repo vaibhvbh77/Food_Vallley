@@ -11,15 +11,21 @@ import RestaurantDetails from "./components/RestaurantDetails";
 import Profile from "./components/Profile";
 import { lazy, Suspense } from "react";
 import Shimmer from "./components/Shimmer";
+import UserContext from "./utils/UserContext";
+import { useState } from "react";
 const InstaMart = lazy(() => import("./components/InstaMart"));
 
 const AppLayout = () => {
+  const [user, setUser] = useState({
+    name: "Vaibhav",
+    email: "Vaibhav@gmail.com",
+  });
   return (
-    <React.Fragment>
+    <UserContext.Provider value={{ user: user, setUser: setUser }}>
       <Header />
       <Outlet />
       <Footer />
-    </React.Fragment>
+    </UserContext.Provider>
   );
 };
 const appRouter = createBrowserRouter([
