@@ -10,7 +10,6 @@ const RestaurantCard = ({ name, cuisines, cloudinaryImageId }) => {
       <h3>{cuisines?.join(",")}</h3>
       <h4>$40</h4>
       <h4>4 stars</h4>
-      <button>Add To Cart</button>
     </div>
   );
 };

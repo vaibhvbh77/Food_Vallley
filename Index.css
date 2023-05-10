@@ -63,3 +63,11 @@ body {
 .footer {
   text-align: center;
 }
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cartButton {
+  background-color: rgb(139, 173, 253);
+  border-radius: 10%;
+}
